@@ -1,0 +1,65 @@
+@font-face {
+	font-display: optional;
+    font-family: 'CoreSansN';
+    src: url('https://s1.cdn.autoevolution.com/_css/fonts/coresans/coresansn45-webfont.eot?v=2');
+    src: url('https://s1.cdn.autoevolution.com/_css/fonts/coresans/coresansn45-webfont.eot?#iefix') format('embedded-opentype'),
+         url('https://s1.cdn.autoevolution.com/_css/fonts/coresans/coresansn45-webfont.woff2?v=2') format('woff2'),
+         url('https://s1.cdn.autoevolution.com/_css/fonts/coresans/coresansn45-webfont.woff?v=2') format('woff'),
+         url('https://s1.cdn.autoevolution.com/_css/fonts/coresans/coresansn45-webfont.ttf?v=2') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+	font-display: optional;
+    font-family: 'CoreSansN';
+    src: url('https://s1.cdn.autoevolution.com/_css/fonts/coresans/coresansn65-webfont.eot?v=2');
+    src: url('https://s1.cdn.autoevolution.com/_css/fonts/coresans/coresansn65-webfont.eot?#iefix') format('embedded-opentype'),
+         url('https://s1.cdn.autoevolution.com/_css/fonts/coresans/coresansn65-webfont.woff2?v=2') format('woff2'),
+         url('https://s1.cdn.autoevolution.com/_css/fonts/coresans/coresansn65-webfont.woff?v=2') format('woff'),
+         url('https://s1.cdn.autoevolution.com/_css/fonts/coresans/coresansn65-webfont.ttf?v=2') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+	font-display: optional;
+    font-family: 'CoreSansNRCond';
+    src: url('https://s1.cdn.autoevolution.com/_css/fonts/coresans/coresansnr47-webfont.eot?v=2');
+    src: url('https://s1.cdn.autoevolution.com/_css/fonts/coresans/coresansnr47-webfont.eot?#iefix') format('embedded-opentype'),
+         url('https://s1.cdn.autoevolution.com/_css/fonts/coresans/coresansnr47-webfont.woff2?v=2') format('woff2'),
+         url('https://s1.cdn.autoevolution.com/_css/fonts/coresans/coresansnr47-webfont.woff?v=2') format('woff'),
+         url('https://s1.cdn.autoevolution.com/_css/fonts/coresans/coresansnr47-webfont.ttf?v=2') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
+@font-face {
+	font-display: optional;
+    font-family: 'CoreSansNRCond';
+    src: url('https://s1.cdn.autoevolution.com/_css/fonts/coresans/coresansnr57-webfont.eot?v=2');
+    src: url('https://s1.cdn.autoevolution.com/_css/fonts/coresans/coresansnr57-webfont.eot?#iefix') format('embedded-opentype'),
+         url('https://s1.cdn.autoevolution.com/_css/fonts/coresans/coresansnr57-webfont.woff2?v=2') format('woff2'),
+         url('https://s1.cdn.autoevolution.com/_css/fonts/coresans/coresansnr57-webfont.woff?v=2') format('woff'),
+         url('https://s1.cdn.autoevolution.com/_css/fonts/coresans/coresansnr57-webfont.ttf?v=2') format('truetype');
+    font-weight: 500;
+    font-style: normal;
+}
+@font-face {
+	font-display: optional;
+    font-family: 'CoreSansNRCond';
+    src: url('https://s1.cdn.autoevolution.com/_css/fonts/coresans/coresansnr67-webfont.eot?v=2');
+    src: url('https://s1.cdn.autoevolution.com/_css/fonts/coresans/coresansnr67-webfont.eot?#iefix') format('embedded-opentype'),
+         url('https://s1.cdn.autoevolution.com/_css/fonts/coresans/coresansnr67-webfont.woff2?v=2') format('woff2'),
+         url('https://s1.cdn.autoevolution.com/_css/fonts/coresans/coresansnr67-webfont.woff?v=2') format('woff'),
+         url('https://s1.cdn.autoevolution.com/_css/fonts/coresans/coresansnr67-webfont.ttf?v=2') format('truetype');
+    font-weight: bold;
+    font-style: normal;
+}
+@font-face {
+	font-display: swap;
+    font-family: 'Glyphutil Neue';    
+    src: 
+         url('https://s1.cdn.autoevolution.com/_css/fonts/glyphutil/glyphutil_neue-webfont.woff2?v=931') format('woff2'),
+         url('https://s1.cdn.autoevolution.com/_css/fonts/glyphutil/glyphutil_neue-webfont.otf?v=931') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
