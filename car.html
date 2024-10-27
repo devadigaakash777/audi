@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>3D Car Model</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.128.0/examples/js/loaders/GLTFLoader.js"></script>
+</head>
+<body>
+    <div id="car-container" style="width: 100%; height: auto;"></div>
+    <!-- <div id="text-overlay" style="position: absolute; top: 40px; left: 20px; color: white; font-size: 24px;">
+        <h1>Mustang Ford Car</h1>
+    </div> -->
+     <script>
+        // Set up the scene, camera, and renderer
+        var scene = new THREE.Scene();
+        var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        var renderer = new THREE.WebGLRenderer({ antialias: true });
+
+        // Set the background color to white
+        renderer.setClearColor(0xffffff, 1);
+
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.getElementById('car-container').appendChild(renderer.domElement);
+
+
+         // Load the background texture
+        /*var loader = new THREE.TextureLoader();
+        loader.load('dark.jpg', function(texture) {
+        scene.background = texture; // Set the texture as the scene background
+        });*/
+        
+        // Add a directional light source
+      //  var directionalLight = new THREE.DirectionalLight(0xffffff, 50); // Increased intensity
+      //  var scaleFactor = 0.5;
+        //directionalLight.position.set(0, 1, 0).normalize();
+       // directionalLight.position.set(0, Math.sin(45 * Math.PI / 180), Math.cos(45 * Math.PI / 180));
+    //    directionalLight.position.set(
+    //         -1, 
+    //         -0.1+scaleFactor * Math.sin(45 * Math.PI / 180), 
+    //         0 + scaleFactor * Math.cos(45 * Math.PI / 180)  // Z position closer to the car
+    //     );
+    //     //directionalLight.lookAt(10, 5, 8);
+
+    //     scene.add(directionalLight);
+
+        //another**************
+        // var directionalLight2 = new THREE.DirectionalLight(0xff0000, 10);
+        // directionalLight2.position.set(
+        //     1, 
+        //     -0.1+scaleFactor * Math.sin(45 * Math.PI / 180), 
+        //     0 + scaleFactor * Math.cos(45 * Math.PI / 180)  // Z position closer to the car
+        // );
+        // scene.add(directionalLight2);
+
+        var directionalLight3 = new THREE.DirectionalLight(0xffffff, 10);
+        directionalLight3.position.set(0,1,0);
+        scene.add(directionalLight3);
+
+        //**************************
+        // Add an ambient light to provide general illumination
+        var ambientLight = new THREE.AmbientLight(0xffffff, 1); // This light will fill the shadows
+        scene.add(ambientLight);
+
+        // Instantiate the GLTFLoader
+        var loader = new THREE.GLTFLoader();
+    
+        // Load the GLB model
+        loader.load('mustang.glb', function (gltf) {
+            var car = gltf.scene;
+            scene.add(car);
+            car.position.set(0,0,-1);//(2.5, 0, 0);   //right-left,up-down,fron-back
+            car.scale.set(1, 1, 1);
+            car.rotation.y =0;// 4.8; //Math.PI;    //horizontal
+            car.rotation.x = 15 * Math.PI / 180;   //vertical
+
+
+            // Add text to the scene
+       /* var fontLoader = new THREE.FontLoader();
+        fontLoader.load('https://threejs.org/examples/fonts/helvetiker_regular.typeface.json', function (font) {
+            var textGeometry = new THREE.TextGeometry('Ford Mustang Car', {
+                font: font,
+                size: 0.3,
+                height: 0.05,
+                curveSegments: 12,
+            });
+
+            var textMaterial = new THREE.MeshBasicMaterial({ color: 0xffffff });
+            var textMesh = new THREE.Mesh(textGeometry, textMaterial);
+            textMesh.position.set(-3, 1, 2); // Adjust the position as needed(right-left,up-down,front-back)
+            scene.add(textMesh);
+        });*/
+
+
+
+    
+            // Animation loop
+            function animate() {
+                requestAnimationFrame(animate);
+                // if(car.rotation.y<6.5){
+                //     car.position.x-=0.01; 
+                //     car.rotation.y += 0.01;
+                // }
+                // //if(car.rotation.y)
+                renderer.render(scene, camera);
+            }
+            animate();
+        }, undefined, function (error) {
+            console.error(error);
+        });
+    
+        camera.position.z = 4;
+
+
+        window.addEventListener('resize', function() {
+        var width = window.innerWidth;
+        var height = window.innerHeight;
+
+        // Update renderer size
+        renderer.setSize(width, height);
+
+        // Update camera aspect ratio and projection matrix
+        camera.aspect = width / height;
+        camera.updateProjectionMatrix();
+    });
+        
+    </script> 
+    
+    <!-- <script>
+        // Set up the scene, camera, and renderer
+        var scene = new THREE.Scene();
+        var camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
+        var renderer = new THREE.WebGLRenderer({ antialias: true });
+    
+        // Enable shadows in the renderer
+        renderer.shadowMap.enabled = true;
+        renderer.shadowMap.type = THREE.PCFSoftShadowMap; // Use soft shadows
+    
+        // Set the background color to white
+        renderer.setClearColor(0xffffff, 1);  // White background
+    
+        renderer.setSize(window.innerWidth, window.innerHeight);
+        document.getElementById('car-container').appendChild(renderer.domElement);
+    
+        // Add a directional light source (with shadows enabled)
+        var directionalLight = new THREE.DirectionalLight(0xffffff, 1); // White light, reduced intensity
+        directionalLight.position.set(5, 10, 5); // Position the light above and at an angle
+        directionalLight.castShadow = true;  // Enable shadow casting for the light
+    
+        // Configure shadow properties for better quality
+        directionalLight.shadow.mapSize.width = 2048; // Shadow map size
+        directionalLight.shadow.mapSize.height = 2048;
+        directionalLight.shadow.camera.near = 0.5;
+        directionalLight.shadow.camera.far = 50;
+        directionalLight.shadow.camera.left = -10;  // Increase shadow coverage area
+        directionalLight.shadow.camera.right = 10;
+        directionalLight.shadow.camera.top = 10;
+        directionalLight.shadow.camera.bottom = -10;
+    
+        scene.add(directionalLight);
+    
+        // Add an ambient light to provide general illumination (no shadows)
+        var ambientLight = new THREE.AmbientLight(0xffffff, 0.5); // General soft lighting
+        scene.add(ambientLight);
+    
+        // Instantiate the GLTFLoader to load the car model
+        var loader = new THREE.GLTFLoader();
+    
+        // Load the GLB model
+        loader.load('mustang.glb', function (gltf) {
+            var car = gltf.scene;
+            scene.add(car);
+    
+            // Position, scale, and rotation of the car
+            car.position.set(0, 0, -1);
+            car.scale.set(1, 1, 1);
+            car.rotation.y = 0;
+            car.rotation.x = 15 * Math.PI / 180;
+    
+            // Enable shadows for the car
+            car.castShadow = true;     // Car casts shadow
+            car.receiveShadow = true;  // Car receives shadow
+    
+            // Add a ground plane to receive shadows
+            var planeGeometry = new THREE.PlaneGeometry(500, 500);
+            var planeMaterial = new THREE.ShadowMaterial({ opacity: 0.5 }); // Shadow material
+            var ground = new THREE.Mesh(planeGeometry, planeMaterial);
+            ground.rotation.x = -Math.PI / 2;  // Rotate the plane to be horizontal
+            ground.position.y = -1;            // Position the ground below the car
+            ground.receiveShadow = true;       // Enable shadow receiving for the ground
+            scene.add(ground);
+    
+            // Animation loop
+            function animate() {
+                requestAnimationFrame(animate);
+                renderer.render(scene, camera);
+            }
+            animate();
+        }, undefined, function (error) {
+            console.error(error);
+        });
+    
+        // Set the camera position
+        camera.position.z = 4;
+    
+        // Handle window resizing
+        window.addEventListener('resize', function () {
+            var width = window.innerWidth;
+            var height = window.innerHeight;
+    
+            // Update renderer size
+            renderer.setSize(width, height);
+    
+            // Update camera aspect ratio and projection matrix
+            camera.aspect = width / height;
+            camera.updateProjectionMatrix();
+        });
+    </script> -->
+    
+
+</body>
+</html>
+
+
+directionalLight3.position.set(68,28,-1)
+plane.position.y = -12;
+x: -10, y: 0, z: -9
+x: -10, y: 0, z: 31
+
+
+const THREE = require('../../three.js');
+const fflate = require('../fflate.min.js');
