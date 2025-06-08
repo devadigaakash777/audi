@@ -3,8 +3,9 @@ body, html {
     margin: 0;
     padding: 0;
     font-family: 'AudiType', sans-serif;
-    background-color: #f5f5f5;
+    /* background-color: #f5f5f5;*/
     color: #333;
+    background-color: #dae5ef;
 }
 
 /* Navbar Styles */
@@ -76,6 +77,7 @@ body, html {
 .contact-section {
     padding: 50px 0;
     background-color: #e5e5e5;
+    /* background-color: #dae5ef; */
     display: flex;
     justify-content: center;
     align-items: center;

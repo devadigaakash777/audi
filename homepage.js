@@ -84,8 +84,9 @@ function displayCarModel() {
 
                   // Enable buttons and zoom controls
                   zoomControls.style.display = "flex";
-                  exteriorBtn.removeAttribute("disabled");
-                  interiorBtn.removeAttribute("disabled");
+                  exteriorBtn.style.display="inline-block";
+                  interiorBtn.style.display="inline-block";
+                  console.log("btn clicked");
               }
 
               animationActive = false;
