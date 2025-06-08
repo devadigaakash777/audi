@@ -286,6 +286,7 @@ video {
 }
 
 .slide-content p {
+    word-wrap: break-word;
     font-size: 0.9em;
     margin-top: 5px;
 }
