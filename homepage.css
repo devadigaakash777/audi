@@ -642,6 +642,15 @@ video {
     }
 }
 
+@media (max-width: 300px), (max-height: 600px) {
+    .car-header{
+            height: 90vh;
+    }
+    .cta-button{
+        display: none;
+    }
+}
+
 @media(min-width:1200px){
     .dots-container span:nth-child(4),
     .dots-container span:nth-child(3){
