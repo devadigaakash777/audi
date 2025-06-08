@@ -10,6 +10,7 @@
 
 }
 body {
+    min-width: 300px;
     background-color: #f8f9fa;
     font-family: Porsche Next, Arial Narrow, Arial, Heiti SC, SimHei, sans-serif;
 }
@@ -65,14 +66,15 @@ body {
 }
 
 .heading{
-    z-index: 2;
-    display: grid;
     position: absolute;
+    z-index: 1;
+    transform: translate(-50%, -50%);
     width: 100%;
+    left: 50%;
+    top: 50%;
     height: 100%;
-    grid-template-columns: 10% auto 10%;
-    grid-template-rows: 10% auto auto;
     color: white;
+    box-sizing: border-box;
 }
 
 .heading > div{
@@ -85,6 +87,10 @@ body {
     grid-row:1;
 }
 .head{
+    padding: 10%;
+    height: 100%;
+    width: 100%;
+    box-sizing: border-box;
 	grid-column:1 / span 3;
     grid-row:2;
 }
@@ -101,7 +107,7 @@ body {
 }
 
 .head h1 {
-    font-size: 48px;
+    /* font-size: 48px; */
     font-weight: bold;
     margin-bottom: 20px;
 }
@@ -140,6 +146,9 @@ body {
 .image-car{
     position: absolute;
     width: 60%;
+    min-width: 300px;
+    z-index: 10;
+    max-width: 800px;
 }
 
 
@@ -503,6 +512,7 @@ video {
     width: 10%;
     aspect-ratio: 1;
     padding: 2%;
+    min-width: 100px;
     /* height: 20%; */
     border-radius: 50%;
     display: flex;
@@ -589,14 +599,17 @@ video {
             height: 20px;
             font-size: 12px;
         }
+        .car-img, .car-show{
+            display: none;
+        }
     }
 
-@media (max-width:750px){
+@media (max-width:900px){
     .head p {
         font-size: 2rem;
     }
     .car-header {
-        height: 30vh;
+        height: 50vh;
     }
     #modul-wrap {
         aspect-ratio: 4 / 6;
